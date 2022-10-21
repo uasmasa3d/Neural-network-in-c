@@ -5,7 +5,9 @@ enum Activation
 {
 	LINEAR,
 	SIGMOID,
-	RELU
+	RELU,
+	BINARY_STEP,
+	LEAKY_RELU
 };
 class Neuron {
 public:
@@ -14,7 +16,8 @@ public:
 	~Neuron();
 
 	void init_weights();
-	void calc_z();
+	double calc_z();
+	void run();
 protected:
 	vector<double> inweights;
 	vector<double> outweights;
