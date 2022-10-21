@@ -1,5 +1,5 @@
 #include<Neuron.h>
-
+#include<Activations.h>
 
 Neuron::Neuron(int id, Activation activation) {
 	this.id = id;
@@ -26,9 +26,17 @@ double Neuron::calc_z(double inweights[],/*value of the corresponding neuron*/) 
 }
 double Neuron::calc_output(double z, Activation activation) {
 	if (activation == Activation::LINEAR)
-		output = z;
+		return linear(z);
 	if (activation == Activation::RELU)
-		output = relu(z);
+		return relu(z);
 	if (activation == Activation::SIGMOID)
-		output = sigmoid(z);
+		return sigmoid(z);
+	if (activation == Activation::BINARY_STEP)
+		return binary_step(z);
+	if (activation == Activation::LEAKY_RELU)
+		return leaky_relu(z);
+}
+double Neuron::run(double inweights[],/*value of the corresponding neuron*/, Activation activation) {
+	double z = calc_z(inweights, /*value of the corresponding neuron*/);
+	return = calc_output(z, activation);
 }
