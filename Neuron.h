@@ -9,28 +9,17 @@ enum Activation
 };
 class Neuron {
 public:
-	Neuron(int id, Activation activation) {
-		this.id = id;
-		this.activation = activation;
-	}
-	~Neuron() {
-		id = null;
-		activation = null;
-	}
-	void init_weights() {
-		for (int i = 0; i < inweights.size(); i++)
-			inweights[i] = double(rand()) / RAND_MAX;
-		for (int i = 0; i < outweights.size(); i++)
-			outweights[i] = double(rand()) / RAND_MAX;
-	}
-	void run() {
-		for (int i = 0; i < inweights.size(); i++)
-			inweights[i] = double(rand()) / RAND_MAX;/////////////////////////////////////
-	}
+	Neuron(int id, Activation activation);
+
+	~Neuron();
+
+	void init_weights();
+	void calc_z();
 protected:
 	vector<double> inweights;
 	vector<double> outweights;
 	double output;
 	Activation ativation;
 	int id;
+	double z;
 };
