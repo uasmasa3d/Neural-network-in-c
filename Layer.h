@@ -17,7 +17,9 @@ public:
 	~Layer();
 	void printLayer();
 	void randomizeAllWeights();
-
+	void alterWeights();
+	void shiftBackWeights();
+	void connectComplete();
 protected:
 	vector<Neuron*> neurons;
 	unit units;
